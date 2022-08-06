@@ -1,0 +1,17 @@
+﻿SpreadsheetID: 1H01shSfmEA_62IRk8YbG-E5cp7mIwpFaDqGHVFIDzyE
+
+SpreadsheetID2: 15CsmCN0v0L2ksvxaM_hOXubtd7VIZuUkIQNGdFujxfM
+
+MailKey: diefoewopcxdfuxp
+
+ClientID: 623153198356-f8a4ak1tblpdanghatht5l88mf445p7k.apps.googleusercontent.com
+
+ClientID2: 1052951311536-bds6vku29vv3cc1u5pqdg3desguci4j3.apps.googleusercontent.com
+
+ClientSecret: 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
+
+ClientSecret@: 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
+
+SheetName: Sheet1
+
+GmailFolderName: Work

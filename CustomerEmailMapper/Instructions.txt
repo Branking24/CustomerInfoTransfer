@@ -1,0 +1,83 @@
+﻿There are 4 parts to setting up this program
+
+1. Understanding the Setup.txt
+
+	The Setup.txt file is very important in the operation of the program. There should be 6 variable names followed by colons
+	then their values. These 6 variables are 'SpreadsheetID', 'MailKey', 'ClientID', 'ClientSecret', 'SheetName', and 'GmailFolderName'.
+	It's crucial to the program that these variable names remain exactly as spelled here, followed by the colon, one space, then the
+	variable value. Subsequent steps will teach what these values should be.
+
+2. Setting up Gmail account to be accessed
+
+	Gmail does not allow a program to access it with just the email and password, so you will have to set up your account to be accessed
+	by a program. To do this you will need a key that you can generate through gmail.com. The steps are as follows:
+		
+		* Go to gmail.com and sign in to your account
+		* In the upper right hand corner, click on your profile and click "Manage your Google Account"
+		* On the new screen that shows up, click the 'Security' tab on the left hand side
+		* Scroll down to a box called "Signing in to Google"
+		* Ensure 2-Step Verification is enabled
+		* In the box labelled "Signing in to Google" click on "App Passwords"
+		* A screen will appear that allows you to select an app and a device, select 'Mail' for the app, and whatever type of computer you are
+			using for the device
+		* Click 'Generate' on the bottom of the screen
+		* A screen will appear and in a yellow box will be the Mail Key needed for the program, copy that mail key and paste it in the Setup.txt file
+			next to 'MailKey: '
+
+3. Setting up Google Sheets to be accessed
+
+	In order to allow the program to access google sheets, you will need to enable the GoogleSheets API on your device, then get values for the
+	ClientID and ClientSecret. The steps are as follows:
+
+		* Go to console.cloud.google.com and sign in to your gmail account
+		* In the top left hand corner, click the button with 3 horizontal lines and then click 'APIs & Services'
+		* If you have never created a project on this screen you will have to click 'Create Project' in the top right
+		* Give the project any time you would like (i.e. something like 'Customer Info Transfer')
+		* On the new screen that comes up, under the search bar at the very top, click the button that says '+ ENABLE APIS AND SERVICES'
+		* When the search bar appears in the middle of the screen, search for 'Google Sheets API'
+		* Click on the "Google Sheets API" result that pops up
+		* Click the 'Enable' button
+		* The Google Sheets API screen will show up, click the 'Credentials' tab in the middle of the screen
+		* Click on '+ Create Credentials' on the right side of the screen and select OAuth client ID
+		* Click on "Configure Consent Screen" on the top right corner
+		* On the new screen, choose 'External' as the user type and click 'Create'
+		* On the next screen, enter 'CsvClient' as the App name
+		* In User support email put your own email
+		* You can then scroll to the very bottom and fill out Developer Contact Information
+			* For the email address you can put brando3034king@gmail.com or whoever you think will be able to help with the program
+		* Click 'Save and Continue', on the Scopes screen click 'Save and Continue' again, and on the next Test users screen click 'Save
+			and Continue' one more time
+		* On Summary screen click 'Back to Dashboard'
+		* On the CsvClient dashboard scroll down to 'Test users' and click "+ ADD USERS"
+		* Type in the email that accesses the google spreadsheet that you will be using and click 'SAVE'
+		* Go back to the "Enabled APIs & Services" tab on the left side
+		* Scroll down to the list of APIs and in the filter put 'Google Sheets API'
+		* Click on the 'Google Sheets API'
+		* In the top right hand corner click "CREATE CREDENTIALS"
+		* Click the 'User Data' bubble and then click next
+		* on the Scopes screen click 'Save and Continue' at the bottom
+		* on the OAuth Client ID screen, choose Desktop app as the type and give it the name 'CsvClient' then click 'Create'
+		* Click 'Done'
+		* On the left hand side click the 'Credentials' tab
+		* Under the OAuth 2.0 Client IDs section, click on 'CsvClient'
+		* On the right hand side are the Client ID and the Client Secret, copy those and put them in the Setup.txt file next to the 
+			'ClientID' variable and the 'ClientSecret' variable respectively
+
+
+4. Location Setups
+
+	The final step is to set up a few locations ids. The first you will need to set up is the SpreadsheetID. The steps are as follows:
+
+		* On Google Sheets open the spreadsheet you wish to write to
+		* in the url you will see something like 'https://docs.google.com/spreadsheets/d/{abunchofnumbersandletters}/edit#gid=0'
+		* copy the string of letters and numbers after the /d/ and before the /edit, past that into the Setup.txt at the SpreadsheetID variable
+
+	The next thing you will need is the sheet name, you can find this at the bottom left of the open spreadsheet, write that name after the SheetName
+	variable in Setup.txt
+
+	The final variable is the GmailFolderName, you can find the folder names in your gmail account
+
+
+You are now ready to use the program!
+
+You can simply open the program, type in your email, and click enter!

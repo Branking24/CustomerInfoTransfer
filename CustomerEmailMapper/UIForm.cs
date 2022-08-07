@@ -23,6 +23,12 @@ namespace CustomerEmailMapper
         {
             InitializeComponent();
             string filename = "C:\\Program Files (x86)\\CERResources\\Setup.txt";
+            spreadsheetID = null;
+            mailKey = null;
+            clientID = null;
+            secret = null;
+            sheetName = null;
+            folderName = null;
             var lines = File.ReadLines(filename);
             foreach (var line in lines)
             {

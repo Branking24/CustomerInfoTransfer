@@ -39,23 +39,24 @@ namespace CustomerEmailMapper
                     IEnumerable<MailMessage> messages = ic.GetMessages(uids);
                     foreach (MailMessage m in messages)
                     {
+                        Console.WriteLine(m.Body);
                         CustomerInfoTemplate template = new CustomerInfoTemplate();
 
-                        var rx = new Regex(@"Email:\r\n\w+(.\w+)*@\w+.\w+<", RegexOptions.IgnoreCase);
+                        var rx = new Regex(@"(?<=Email:\r\n).*(?=<)", RegexOptions.IgnoreCase);
                         Match match = rx.Match(m.Body);
-                        template.email = match.Value.Substring(7, match.Value.Length - 8);
+                        template.email = match.Value;
 
-                        rx = new Regex(@"Phone:\r\n\+\w+\r\n");
+                        rx = new Regex(@"(?<=Phone:\r\n).*(?=\r\n)");
                         match = rx.Match(m.Body);
-                        template.phone = match.Value.Substring(7, match.Value.Length - 9);
+                        template.phone = match.Value;
 
-                        rx = new Regex(@"View\sAll\sDeals\<.*Unsubscribe");
+                        rx = new Regex(@"(?<=View\sBuyer\sProfile<).*(?=>)");
                         match = rx.Match(m.Body);
-                        template.profileUrl = match.Value.Substring(15, match.Value.Length - 34);
+                        template.profileUrl = match.Value;
 
-                        rx = new Regex(@"Registration\r\nfrom\s.*\r\n");
+                        rx = new Regex(@"(?<=Registration\r\nfrom\s).*(?=\!\r\n)");
                         match = rx.Match(m.Body);
-                        template.name = match.Value.Substring(19, match.Value.Length - 22);
+                        template.name = match.Value;
 
                         allInfo.Add(template);
                     }
